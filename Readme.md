@@ -18,8 +18,8 @@ Also you can get report for transactions which exceeded limit using this API
 ## Project installation
 #### Step 1: install repository locally
 ```sh
-git clone https://github.com/yourusername/your-repository.git
-cd your-repository
+git clone https://github.com/mereiamangeldin/transactions-microservice.git
+cd transactions-microservice
 ```
 #### Step 2: Compile the project
 ```shell
