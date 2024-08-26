@@ -1,0 +1,23 @@
+version: '2.29.2'
+
+services:
+  db:
+    image: 'postgres'
+    volumes:
+      - postgresData:/var/lib/postgresql/data
+    env_file:
+      - ./env/postgres.env
+    container_name: db
+    ports:
+      - '5432:5432'
+
+  microservice:
+    build: .
+    ports:
+      - '8080:8080'
+    container_name: microservice
+    depends_on:
+      - db
+
+volumes:
+  postgresData:

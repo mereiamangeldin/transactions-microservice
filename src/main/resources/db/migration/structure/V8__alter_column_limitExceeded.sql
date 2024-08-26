@@ -1,0 +1,1 @@
+alter table transaction_exceeded_limits rename column exceededAmount to exceeded_amount;
