@@ -21,6 +21,9 @@ Also you can get report for transactions which exceeded limit using this API
 git clone https://github.com/mereiamangeldin/transactions-microservice.git
 cd transactions-microservice
 ```
+or
+
+Download zip file of project (Recommended because of buffer size of you local git)
 #### Step 2: Compile the project
 ```shell
 mvn clean package -DskipTests   
