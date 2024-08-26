@@ -3,7 +3,13 @@
 ## Short project description
 
 
+
 ## Project installation
+
+This microservice responsible for tracking limits for transactions. 
+
+For every coming transaction,
+
 
 #### Step 1: install repository locally
 ```sh

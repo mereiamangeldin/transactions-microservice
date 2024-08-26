@@ -4,6 +4,7 @@ import com.github.mereiamangeldin.transactions_microservice.dto.CurrencyRateDTO.
 import com.github.mereiamangeldin.transactions_microservice.enums.CurrencyShortname;
 import com.github.mereiamangeldin.transactions_microservice.model.CurrencyRate;
 import com.github.mereiamangeldin.transactions_microservice.repository.CurrencyRateRepository;
+import com.github.mereiamangeldin.transactions_microservice.util.exchangeHelper.ExchangeHelper;
 import jakarta.annotation.PostConstruct;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -49,16 +50,16 @@ public class CurrencyRateService implements ICurrencyRateService {
         CurrencyShortname from, to;
         from = CurrencyShortname.KZT;
         to = CurrencyShortname.USD;
-//        float KZTtoUSD = ExchangeHelper.getCurrentCloseValue(from, to);
-        float KZTtoUSD = 0.002F;
+        float KZTtoUSD = ExchangeHelper.getCurrentCloseValue(from, to);
+//        float KZTtoUSD = 0.002F;
         CurrencyRateDTO currencyRateDTO = new CurrencyRateDTO(from, to, KZTtoUSD, date);
         CurrencyRateDTO currencyRate = modelMapper.map(currencyRateRepository.save(modelMapper.map(currencyRateDTO, CurrencyRate.class)), CurrencyRateDTO.class);
         logger.trace("Currency rate from " + from + " to " + to + " successfully saved to db: " + currencyRate);
 
         from = CurrencyShortname.RUB;
         to = CurrencyShortname.USD;
-//        float RUBtoUSD = ExchangeHelper.getCurrentCloseValue(from, to);
-        float RUBtoUSD = 0.01091F;
+        float RUBtoUSD = ExchangeHelper.getCurrentCloseValue(from, to);
+//        float RUBtoUSD = 0.01091F;
         currencyRateDTO = new CurrencyRateDTO(from, to, RUBtoUSD, date);
         currencyRate = modelMapper.map(currencyRateRepository.save(modelMapper.map(currencyRateDTO, CurrencyRate.class)), CurrencyRateDTO.class);
         logger.trace("Currency rate from " + from + " to " + to + " successfully saved to db: " + currencyRate);
